@@ -344,7 +344,7 @@ func (z *Rasterizer) accumulateMask(r, dstBounds image.Rectangle) {
 				}
 			} else {
 				for y := r.Min.Y * z.size.X; y < r.Max.Y*z.size.X; y += z.size.X {
-					fixedAccumulateMask(z.bufU32)
+					fixedAccumulateMask(z.bufU32[y+r.Min.X : y+r.Max.X])
 				}
 			}
 		}
